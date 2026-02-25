@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raneen | Personal Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #fff7fb;
+            color: #444;
+        }
+
+        nav {
+            background: #ffb3d9;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #4a0033;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        section {
+            padding: 90px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        #home {
+            text-align: center;
+            padding-top: 140px;
+        }
+
+        /* --- Gallery Styles --- */
+        #gallery img {
+            width: 30%;
+            margin: 1%;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(255, 182, 193, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Lightbox Modal Styles --- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(74, 0, 51, 0.9); /* Dark purple transparent background */
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox-content {
+            max-width: 85%;
+            max-height: 85%;
+            border: 5px solid white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            animation: popIn 0.3s ease-out;
+            cursor: default;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #ffb3d9;
+        }
+
+        /* --- Video & Form Styles --- */
+        iframe {
+            width: 100%;
+            height: 420px;
+            border-radius: 12px;
+            border: none;
+        }
+
+        form {
+            background: #ffe6f2;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ff99cc;
+            background: white;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #ff66b3;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #e60073;
+        }
+
+        footer {
+            background: #ffb3d9;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #4a0033;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#video">Video</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h1>Welcome, I'm <span style="color:#e60073;">Raneen</span></h1>
+        <p>This is my personal one-page website. Feel free to explore my gallery, watch my video, or send me a message.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>My Gallery</h2>
+        <p>Click on any image to view it full screen.</p>
+
+        <img src="https://cdn.pixabay.com/photo/2019/08/20/13/14/animal-4418773_1280.jpg" alt="Raccoon 1">
+        <img src="https://cdn.pixabay.com/photo/2019/08/20/13/14/animal-4418773_1280.jpg" alt="Raccoon 2">
+        <img src="https://cdn.pixabay.com/photo/2019/08/20/13/14/animal-4418773_1280.jpg" alt="Raccoon 3">
+    </section>
+
+    <div id="lightboxModal" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="modalImg">
+    </div>
+
+    <section id="video">
+        <h2>Featured Video</h2>
+        <iframe src="https://www.youtube.com/embed/JRWox-i6aAk" title="YouTube video player" allowfullscreen></iframe>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <label>Name:</label>
+            <input type="text" placeholder="Your Name">
+            <label>Email:</label>
+            <input type="email" placeholder="Your Email">
+            <label>Message:</label>
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 | Website by Raneen</p>
+    </footer>
+
+    <script>
+        const modal = document.getElementById("lightboxModal");
+        const modalImg = document.getElementById("modalImg");
+        const galleryImages = document.querySelectorAll("#gallery img");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // Open lightbox
+        galleryImages.forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Close when clicking the X
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close when clicking outside the image
+        modal.onclick = function(e) {
+            if (e.target !== modalImg) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
