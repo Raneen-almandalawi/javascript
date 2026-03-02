@@ -1,0 +1,410 @@
+html {
+    scroll-behavior: smooth; /*This ensures that the page scrolling is smooth when the buttons on the nav bar is clicked */
+}
+
+/* Body */
+body {
+    margin: 0%; /* This ensures our site displays all the way to the edge of the browser screen */
+    opacity: 1; /* This and transition affect the page loading fade in effect */
+    transition: 3s opacity; /* This causes a 3 second fade in */
+    letter-spacing: .2vw; 
+    font-family: Avant Garde, Helvetica;
+    font-size: 1.5vw; 
+    overflow-x: hidden; 
+    user-select: none; 
+    background-color: #fdfbff; /* Lightest violet tint for background */
+}
+
+/* This section contributes to the fade effect for the page that occurs when the page is loaded */
+body.fade-out {
+    opacity: .1; 
+}
+
+/* Heading 1 elements */
+h1 {
+    text-transform: uppercase; 
+    font-family: "Trebuchet MS", Optima; 
+    text-align: center; 
+    margin-top: 3%; 
+    color: #4b0082; /* Indigo/Deep Purple */
+}
+
+/* Heading 1 element hover effect */
+h1:hover {
+    filter: brightness(1.2); /* Brightens the purple on hover */
+    transform: scale(1.1); 
+    transition: transform 1s; 
+}
+
+/* Styling for Portfolio Title Text */
+.white-text {
+    color: #fff;
+    padding-top: 10vh; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds depth to white text over video */
+}
+
+/* Paragraph elements */
+p {
+    font-family: Perpetua, Rockwell Extra Bold;
+    text-align: justify; 
+    letter-spacing: .1vw; 
+    font-size: 2.5vw; 
+    padding-left: 1vw; 
+    padding-right: 1vw;
+    color: #2e1a47; /* Dark purple text for readability */
+}
+
+/* Paragraph element hover effect */
+p:hover {
+    transition: transform 1s; 
+    transform: scale(1.01); 
+}
+
+/* Center class */
+.center {
+    text-align: center; 
+}
+
+.center:hover {
+    transition: transform 2s; 
+    transform: scale(1.1); 
+}
+
+/* Anchor elements */
+a {
+    color: #8a2be2; /* BlueViolet */
+    cursor: pointer; 
+    text-decoration: underline; 
+}
+
+a:hover {
+    color: #6a0dad;
+}
+
+/* Quotation elements */
+q {
+    font-style: italic; 
+}
+
+/* Image elements */
+img {
+    filter: sepia(20%) hue-rotate(240deg) saturate(80%); /* Gives images a slight purple tint */
+    border-radius: 8px; 
+    max-width: 100%; 
+    max-height: 100%;
+    display: block; 
+    margin: auto;
+}
+
+img:hover {
+    filter: none;  /* Shows original color on hover */
+    transition: 0.5s;
+}
+
+/*Styling for footer element */
+footer {
+    padding: 2%; 
+    background-color: #fff;
+    border-top: 2px solid #6a0dad;
+}
+
+/***** Navbar Styling *****/
+.Navbar {
+    overflow: hidden; 
+    background-color: #2e1a47; /* Dark Purple */
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1; 
+    animation: moveNav 5s; 
+}
+
+@keyframes moveNav {
+    from {left: -100vw;} 
+    to { left: 0vw;} 
+}
+
+.Navbar a {
+    float: left; 
+    display: block; 
+    color: #e6e6fa; /* Lavender font color */
+    padding: .75vw 1vw; 
+    text-decoration: none; 
+    font-family: Avant Garde, Helvetica; 
+    font-size: 1.5vw; 
+    text-align: center; 
+    position: relative; 
+    animation: moveNavText 5.75s; 
+}
+
+@keyframes moveNavText {
+    from {top: -100vw;} 
+    to {top: 0vw;} 
+}
+
+.Navbar a:hover {
+    background-color: #9370db; /* Medium Purple on hover */
+    color: white; 
+    cursor: pointer;
+    transition: 0.5s ease-in;
+}
+
+.Navbar a.active { 
+    background-color: #6a0dad; /* Active Deep Violet */
+}
+
+/***** Video Styling *****/
+#Typing_Video {
+    position: fixed; 
+    right: 0; 
+    bottom: 0; 
+    min-width: 100%; 
+    z-index: -1; 
+}
+
+.Video_Text {
+    background: rgba(46, 26, 71, 0.6); /* Deep purple semi-transparent overlay */
+    color: white; 
+    width: 100%; 
+    height: 100vh; 
+    padding-top: 2vh; 
+    position: relative; 
+    animation: moveVideoText 5.75s; 
+}
+
+@keyframes moveVideoText {
+    from {top: -100vw;} 
+    to {top: 0vw;} 
+}
+
+/***** Slideshow Styling *****/
+#Slideshow_Background {
+    background: rgba(230, 230, 250, 0.5); /* Lavender transparent background */      
+}
+
+.mySlides{
+    display: none; 
+}
+
+#Slideshow_Container {
+    width: 39.5vw; 
+    height: auto; 
+    padding-top: 4%; 
+    position: relative; 
+    margin:auto; 
+}
+
+#Slideshow_Container a {
+    text-decoration: none;
+}
+
+.Slideshow_Images {
+    vertical-align: middle; 
+    height: auto; 
+    box-shadow: 0px 5px 15px 5px rgba(106, 13, 173, 0.4); /* Purple tinted shadow */
+    width: 100%; 
+}
+
+.Previous, .Next {
+    cursor: pointer; 
+    position: absolute; 
+    top: 50%; 
+    width: auto; 
+    padding: 2vw; 
+    color: #9370db; 
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0; 
+    user-select: none; 
+    transition: 0.6s ease; 
+}
+
+.Next {
+    right: 0; 
+    border-radius: 3px 0 0 3px; 
+}
+
+.Previous:hover, .Next:hover {
+    background-color: rgba(106, 13, 173, 0.8); 
+    color: white; 
+}
+
+.text {
+    color: white; 
+    padding: 1vw;
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    text-align: center; 
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw; 
+    font-size: 1.5vw; 
+    background-color: rgba(46, 26, 71, 0.8); /* Dark purple text background */
+    font-weight: bold;
+    border-radius: 0px 0px 7px 7px; 
+}
+
+.dot {
+    cursor: pointer; 
+    height: 1vw; 
+    width: 1vw;
+    margin: .25vw; 
+    background-color: #e6e6fa; 
+    border-radius: 50%; 
+    display: inline-block; 
+    transition: background-color 0.6s ease; 
+    z-index: 1; 
+}
+
+.active, .dot:hover {
+    background-color: #6a0dad; 
+}
+
+.fade {
+    animation-name: fade; 
+    animation-duration: 1.5s; 
+}
+
+@keyframes fade {
+    from {opacity: .4;} 
+    to {opacity: 1;} 
+}
+
+/***** Table Styling *****/
+* { 
+    box-sizing: border-box; 
+} 
+
+.Column_1 {
+    float: left;
+    width: 50%; 
+    padding: 1.6%;
+    height: 450px; 
+    background-color: #f8f4ff; /* Very light purple column */
+}
+
+.Column_2 {
+    float: left;
+    width: 50%;
+    padding: 1.6%;
+    height: 450px;
+    background-color: #dcd0ff; /* Lavender column */
+}
+
+.Row:after {
+    content: ""; 
+    display: table; 
+    clear: both; 
+}
+
+/***** Contact Form Styling *****/
+.Pop_Up_Button {
+    position: fixed; 
+    bottom: 1.75vw; 
+    right: 1.75vw; 
+    width: 25vw; 
+    background-color: #6a0dad; /* Purple Button */
+    color: white; 
+    border: 2px solid #2e1a47; 
+    cursor: pointer; 
+    animation: movePopup 5s; 
+}
+
+@keyframes movePopup {
+    from {right: -40vw;} 
+    to {right: 1.75vw;}
+}
+
+.form-popup {
+    z-index: 8; 
+    display: none; 
+    position: fixed; 
+    bottom: .5vw; 
+    right: .5vw; 
+}
+
+.form-container {
+    max-width: 49vw; 
+    padding: 1vw; 
+    background-color: white; 
+    border: 3px solid #6a0dad;
+    border-radius: 10px;
+}
+
+.form-container input[type=text] {
+    width: 100%; 
+    padding: .93vw; 
+    margin: .6vw 0 .6vw 0; 
+    border: 1px solid #dcd0ff; 
+    background: #fdfbff; 
+    font-size: 1vw; 
+}
+
+button {
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: .3vw; 
+    font-size: 1.5vw; 
+    font-weight: bold; 
+    padding: 1.5vw; 
+    cursor: pointer; 
+    width: 100%; 
+    height: auto; 
+}
+
+button:hover, .form-container .btn:hover {
+    color: white; 
+    background-color: #4b0082; 
+    transition-duration: 1s; 
+    border-color: #9370db; 
+}
+
+.form-container .btn {
+    background-color: #6a0dad; 
+    color: white;
+    border: none;
+    margin-bottom: 1vh; 
+}
+
+.form-container .cancel {
+    background-color: #f8f4ff;
+    color: #6a0dad;
+    border: 1px solid #6a0dad;
+}
+
+.form-container .cancel:hover {
+    color: white;
+    background-color: #ff4d4d; /* Red highlight for close remains for UX contrast */
+    border-color: #b30000;
+}
+
+/***** Media Rules (Responsive) *****/
+
+@media screen and (max-width: 527px) { p { font-size: 3.75vw; } }
+@media screen and (min-width: 528px) and (max-width: 660px) { p { font-size: 3.5vw; } }
+@media screen and (min-width: 661px) and (max-width: 799px) { p { font-size: 2.75vw; } }
+@media screen and (min-width: 800px) and (max-width: 924px) { p { font-size: 2.5vw; } }
+@media screen and (min-width: 925px) and (max-width: 1050px) { p { font-size: 2.25vw; } }
+@media screen and (min-width: 1051px) and (max-width: 1310px) { p { font-size: 2vw; } }
+@media screen and (min-width: 1311px) and (max-width: 1535px) { p { font-size: 1.75vw; } }
+@media screen and (min-width: 1536px) and (max-width: 2269px) { p { font-size: 1.5vw; } }
+@media screen and (min-width: 2270px) { p { font-size: 1.35vw; } }
+
+@media screen and (max-width: 1080px) {
+    .Navbar a{
+        width: 20%; 
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .quote{ font-size: 3.5vw; }
+    .white-text { font-size: 4.5vw; }
+}
+
+@media screen and (min-width: 1725px) {
+    .Column_1, .Column_2 { height: 550px; }
+}
+
+@media screen and (min-width: 2000px) {
+    h1{ margin-top: 0; }
+}
